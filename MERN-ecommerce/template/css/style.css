@@ -47,6 +47,16 @@ footer{
 
 /* Common */
 
+h1 {
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+h2 {
+    font-size: 16px;
+    padding: 10px 0;
+}
+
 a {
     text-decoration: none;
 }
@@ -67,4 +77,44 @@ a.brand{
 
 .row.center{
     justify-content: center;
+}
+
+/* Images */
+
+img {
+    border-radius: 5px;
+}
+
+img.medium{
+    max-width: 290px;
+    width: 100%;
+}
+
+/* Card Properties  */
+
+.card {
+    border: 0.1rem #c0c0c0 solid;
+    background: #f8f8f8;
+    border-radius: 5px;
+    margin: 10px;
+}
+.card-body {
+    padding: 10px ;
+}
+
+.card-body > * {
+    margin-bottom: 5px;
+}
+
+.price{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Rating */
+
+.ratting{
+    color:#ff8000;
+    margin: 5px;
+    
 }
