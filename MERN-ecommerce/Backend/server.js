@@ -1,5 +1,4 @@
 import express from 'express';
-import { env } from 'process';
 import data from './data.js';
 
 const app = express();
