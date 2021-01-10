@@ -12,7 +12,6 @@ app.get('/',
 app.get('/api/products',
         (req, res)=>{
             res.send(data.products);
-            console.log(data.products);
         }
 );
 

@@ -110,7 +110,9 @@ img.medium{
   max-width: 290px;
   width: 100%;
 }
-
+img.img-large{
+  
+}
 /* Card Properties  */
 
 .card {
@@ -168,4 +170,20 @@ button.primary {
 }
 button.block {
   width: 100%;
+}
+
+.alert {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.alert-info{
+  color: #2020a0;
+  background: #e0e0ff;
+}
+
+.alert-danger{
+  color: #a02020;
+  background: #e0e0ff;
 }
