@@ -2,6 +2,9 @@ import React from 'react';
 import Rating from './Rating';
 
 const Product = (props) =>{
+    
+
+
     const product = props.product;
     return(
         <div className="card">
