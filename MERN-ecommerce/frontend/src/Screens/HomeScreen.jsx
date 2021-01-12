@@ -1,71 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import Product from '../Components/Product';
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from '../Actions/productActions';
 
-const HomeScreen = () =>
-{
-    const [products, setProducts] = useState([]);
+export default function HomeScreen() {
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
 
-    const [Loading, setLoading] = useState(false);
-
-    const [Error, setError] = useState(false);
-
-    useEffect(
-
-        ()=>{
-
-            const fetchData = async () =>{
-
-               try{
-                    setLoading( true );
-
-                    const { data } = await axios.get('/api/products/');
-
-                    setLoading( false );
-
-                    setProducts( data );
-
-               } catch(err){
-
-                   setError(err.message);
-
-                   setLoading(false);
-
-               }
-
-            }
-
-            fetchData();
-
-        }
-
-    , []);
-
-
-
-        
-   return(
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
+  return (
     <div>
-        {/* Iterates Products and Renders it */}    
-            {
-                Loading ? ( <LoadingBox/> )
-                :
-                Error ? ( <MessageBox variant='danger'>{Error}</MessageBox> )
-                :
-                (<div className="row center">
-                    { products.map(
-                     (product) =>(
-                        <Product key={ product._id } product=  { product }/>
-                    )
-                    )}
-                </div>)
-                
-            }         
-
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
+      ) : (
+        <div className="row center">
+          {products.map((product) => (
+            <Product key={product._id} product={product}></Product>
+          ))}
+        </div>
+      )}
     </div>
-   )
+  );
 }
-
-export default HomeScreen;
