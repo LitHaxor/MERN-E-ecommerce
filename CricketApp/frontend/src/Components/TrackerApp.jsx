@@ -4,10 +4,11 @@ import {incrementRun,DecrementRun} from '../Services/Actions/CounterRuns';
 import { incrementBall, decrementBall}  from '../Services/Actions/CountBalls';
 import {decrementWicket,incrementWicket} from '../Services/Actions/CountWicket';
 import {decrementOver,incrementOver} from '../Services/Actions/countOver';
+import {SetOver} from '../Services/Actions/setOver';
+import OverModal from './OverModal';
 
 
-
-const TrackerApp =({incrementRun,DecrementRun, incrementBall, decrementBall, decrementWicket, incrementWicket, decrementOver, incrementOver,over, balls, wicket, runs })=> {
+const TrackerApp =({incrementRun,DecrementRun, incrementBall,SetOver,maxOver, decrementBall, decrementWicket, incrementWicket, decrementOver, incrementOver,over, balls, wicket, runs })=> {
     
     function overUp(balls){
         if(balls === 5)
@@ -64,6 +65,7 @@ const TrackerApp =({incrementRun,DecrementRun, incrementBall, decrementBall, dec
                     <div className="button-group">
                         <button className="btn btn-primary">Review Decesion</button>
                     </div>
+                    
                     <div className="button-group">
                         <a href="/TrackerApps" className="btn btn-danger">Finish Innings</a>
                     </div>
@@ -77,8 +79,8 @@ const mapStateToProps = (state) =>({
     runs: state.RunsReducer.runs,
     balls: state.BallsReducer.balls,
     over: state.OverReducer.over,
-    wicket: state.WicketReducer.wicket
-
+    wicket: state.WicketReducer.wicket,
+    maxOver : state.setOverReducer.maxOver
 })
 
-export default connect(mapStateToProps, {incrementRun,DecrementRun, incrementBall, decrementBall, decrementWicket, incrementWicket, decrementOver, incrementOver})(TrackerApp);
+export default connect(mapStateToProps, {incrementRun,DecrementRun, SetOver,incrementBall, decrementBall, decrementWicket, incrementWicket, decrementOver, incrementOver})(TrackerApp);

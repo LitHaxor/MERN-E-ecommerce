@@ -2,6 +2,7 @@ import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
+import cartScreen from './Screens/CartScreen';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           
           <Route path='/' component={HomeScreen} exact/>
           
-
+          <Route path="/cart/:id?" component={cartScreen}/>
         </main>
         
         <footer className="row center">Open Source</footer>
