@@ -100,6 +100,10 @@ a.brand{
 .col-2 {
   flex: 2 1 500px;
 }
+
+.min-30{
+  min-width: 30rem;
+}
 /* Images */
 
 img {
@@ -108,6 +112,11 @@ img {
 
 img.medium{
   max-width: 290px;
+  width: 100%;
+}
+
+img.img-small{
+  max-width: 5rem;
   width: 100%;
 }
 img.img-large{
@@ -197,3 +206,4 @@ button.block {
   font-size: 14px;
   margin-left: 2px;
 }
+
