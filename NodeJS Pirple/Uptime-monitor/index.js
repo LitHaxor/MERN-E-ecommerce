@@ -19,15 +19,24 @@ const server = http.createServer(
     const trimmedPath = path.replace(/^\/+|\/+$/g,'');
 
 
-    // 5. get the HTTP method 
+    // get the query string
+    const queryStringObject = parsedURL.query;
+
+    // get the HTTP method 
     const method = req.method.toUpperCase();
+
+    // get the headers
+    const headers= req.headers;
+
+
+    // get the 
 
     // 3. Send the response
     res.end('hello world\n');
     
     // 4. log the request path
     
-    console.log('Request recieved: ' + trimmedPath + ' with method:  ' + method);
+    console.log('Request recived with these headers: ', headers);
 
     // end callback
 })
