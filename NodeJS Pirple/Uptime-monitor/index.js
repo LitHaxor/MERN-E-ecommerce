@@ -19,12 +19,15 @@ const server = http.createServer(
     const trimmedPath = path.replace(/^\/+|\/+$/g,'');
 
 
+    // 5. get the HTTP method 
+    const method = req.method.toUpperCase();
+
     // 3. Send the response
     res.end('hello world\n');
     
     // 4. log the request path
     
-    console.log('Request recieved:' + trimmedPath);
+    console.log('Request recieved: ' + trimmedPath + ' with method:  ' + method);
 
     // end callback
 })
