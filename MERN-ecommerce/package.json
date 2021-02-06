@@ -5,12 +5,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch Backend --exec node --experimental-modules Backend/server.js"
+    "client": "cd frontend && npm start",
+    "server": "cd Backend && node server.js",
+    "start": "concurrently \"npm run client\" \"npm run nodemon\"",
+    "nodemon": "nodemon --watch Backend --exec node --experimental-modules Backend/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.7"
   },
