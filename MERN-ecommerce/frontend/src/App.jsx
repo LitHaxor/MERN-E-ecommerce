@@ -3,12 +3,20 @@ import {BrowserRouter, Link, Route} from 'react-router-dom';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
 import cartScreen from './Screens/CartScreen';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import SigninScreen from './Screens/SigninScreen';
+import { signOut } from './Actions/userActions';
 
 function App() {
 
   const cart = useSelector( state => state.cart);
   const { cartItems } = cart;
+  const userSignedin=  useSelector((state)=> state.userSignin);
+  const {userInfo} = userSignedin;
+  const dispatch = useDispatch();
+  const signOutHandler = () =>{
+      dispatch(signOut());
+  }
   return (
    <BrowserRouter>
    
@@ -27,7 +35,17 @@ function App() {
                 )
                 }
                 </Link>
-                <Link to="/signin">signin</Link>
+                {
+                  userInfo ? 
+                  (
+                    <div className="dropdown">
+                        <Link to="#">{userInfo.name} <i className="fa fa-caret-down"></i></Link>
+                        <ul className="dropdown-content">
+                          <Link to="#signout" onClick={()=>signOutHandler()}>Signout</Link>
+                        </ul>
+                    </div>
+                  ): (<Link to="/signin">signin</Link>)
+                }
             </div>
 
         </header>
@@ -40,7 +58,10 @@ function App() {
           
           <Route path='/' component={HomeScreen} exact/>
           
+          <Route path="/signin" component={SigninScreen}/>
+
           <Route path="/cart/:id?" component={cartScreen}/>
+
         </main>
         
         <footer className="row center">Open Source</footer>
