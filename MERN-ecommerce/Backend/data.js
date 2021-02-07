@@ -1,37 +1,35 @@
 import bcrypt from 'bcrypt';
 
 const data = {
-    users:[
-        {
+    users: [{
             name: 'hasan',
             email: 'admin@gmail.com',
-            password: bcrypt.hashSync('1234',8),
+            password: bcrypt.hashSync('1234', 8),
             isAdmin: true,
         },
         {
             name: 'jon',
             email: 'user@gmail.com',
-            password: bcrypt.hashSync('1234',8),
+            password: bcrypt.hashSync('1234', 8),
             isAdmin: false,
         }
     ],
 
 
-    products:[
-        {
-            name : ' Slim shirt',
+    products: [{
+            name: ' Slim shirt',
             image: '/assets/img/p1.jpg',
             price: 199.99,
             brand: 'Nike',
             rating: 3.5,
             category: 'shirts',
             numReviews: 10,
-            stock:120,
+            stock: 120,
             description: 'High Quality Garbage',
         },
         {
 
-            name : 'Ganja mango shirt',
+            name: 'Ganja mango shirt',
             image: '/assets/img/p2.jpg',
             price: 89,
             brand: 'Nike',
@@ -42,7 +40,7 @@ const data = {
             description: 'High Quality Garbage',
         },
         {
-            name : 'Nike orange shirt',
+            name: 'Nike orange shirt',
             image: '/assets/img/p3.jpg',
             price: 33.5,
             brand: 'Nike',
@@ -53,7 +51,7 @@ const data = {
             description: 'High Quality Garbage',
         },
         {
-            name : 'Mango divine shirt',
+            name: 'Mango divine shirt',
             image: '/assets/img/p4.jpg',
             price: 130,
             brand: 'Nike',
@@ -64,7 +62,7 @@ const data = {
             description: 'High Quality Garbage',
         },
         {
-            name : 's Slim shirt',
+            name: 's Slim shirt',
             image: '/assets/img/p5.jpg',
             price: 120,
             brand: 'Nike',
@@ -78,4 +76,3 @@ const data = {
 }
 
 export default data;
-
